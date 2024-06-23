@@ -1,0 +1,21 @@
+RewriteEngine On
+RewriteBase /public/
+
+# Redirect requests for 'admin' to 'admin.php'
+RewriteRule ^admin$ admin.php [L]
+
+# Redirect requests for 'products' to 'products.php'
+RewriteRule ^products$ products.php [L]
+
+# Redirect requests for 'orders' to 'orders.php'
+RewriteRule ^orders$ orders.php [L]
+
+# Redirect requests for 'stock' to 'stock.php'
+RewriteRule ^stock$ stock.php [L]
+
+# Redirect requests for 'purchase_orders' to 'purchase_orders.php'
+RewriteRule ^purchase_orders$ purchase_orders.php [L]
+
+# Redirect old URLs with .php to new URLs without .php
+RewriteCond %{THE_REQUEST} ^.*/(admin|products|orders|stock|purchase_orders)\.php
+RewriteRule ^(.*)\.php$ /$1 [R=301,L]
